@@ -36,6 +36,10 @@ jobs:
       with:
         name: main.linux
         path: main
+
+    - name: Bump version and push tag
+      uses: anothrNick/github-tag-action@master
+
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
