@@ -22,8 +22,6 @@ jobs:
     - name: Build
       run: |
         go build -v main.go
-        echo "Sridhar"
-        cp dist/github_workflow_action_tutorial_darwin_amd64_v1/github_workflow_action_tutorial dist/github_workflow_action_tutorial_darwin_amd64_v1/github_workflow_action_tutorial.darwin
 
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v5
@@ -33,6 +31,9 @@ jobs:
         workdir: .
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |      
+        echo "Sridhar"
+        cp dist/github_workflow_action_tutorial_darwin_amd64_v1/github_workflow_action_tutorial dist/github_workflow_action_tutorial_darwin_amd64_v1/github_workflow_action_tutorial.darwin
 
     - name: Bump version and push tag
       id: tag
