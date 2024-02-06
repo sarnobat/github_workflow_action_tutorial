@@ -36,4 +36,8 @@ jobs:
       with:
         name: main.linux
         path: main
-
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          main.linux
