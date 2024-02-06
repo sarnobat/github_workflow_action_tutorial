@@ -32,6 +32,10 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Rename binaries
+      run: |
+        cp dist/github_workflow_action_tutorial_darwin_amd64_v1/github_workflow_action_tutorial dist/github_workflow_action_tutorial.osx
+
     - name: Bump version and push tag
       id: tag
       uses: anothrNick/github-tag-action@1.64.0 # Don't use @master or @v1 unless you're happy to test the latest version
@@ -44,4 +48,5 @@ jobs:
       with:
         files: |
           dist/github_workflow_action_tutorial_darwin_amd64_v1/github_workflow_action_tutorial
+          dist/github_workflow_action_tutorial.osx
         tag_name: ${{ steps.tag.outputs.new_tag }}
